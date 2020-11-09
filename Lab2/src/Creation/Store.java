@@ -93,6 +93,29 @@ public abstract class Store {
         }
     }
 
+    public static void print_store(Store newstore){
+        System.out.println("The store \"" + newstore.getName()
+                + "\" by " + newstore.getOwner().getSetOwner().getName()
+                +  "(" + newstore.getOwner().getSetOwner().getAge() + " years) "
+                + " is created");
+        int i = 0;
+        while(newstore.getProductDepartments()[i]!=null) {
+            System.out.println(newstore.getProductDepartments()[i].getClass().getName() + ":");
+            int j = 0;
+            while (newstore.getProductDepartments()[i].getProductTypes()[j] != null) {
+                System.out.println(newstore.getProductDepartments()[i].getProductTypes()[j].getClass().getName() + ":");
+                int k = 0;
+                while (newstore.getProductDepartments()[i].getProductTypes()[j].getProducts()[k] != null) {
+                    System.out.print(newstore.getProductDepartments()[i].getProductTypes()[j].getProducts()[k].getProduct_name() + ", ");
+                    k++;
+                }
+                System.out.println();
+                j++;
+            }
+            i++;
+        }
+    }
+
     public static void print_store(StoreBuilder newstore){
         System.out.println("The store \"" + newstore.getStore().getName()
                 + "\" by " + newstore.getStore().getOwner().getSetOwner().getName()
@@ -116,7 +139,19 @@ public abstract class Store {
         }
     }
 
-    public static void print_sub_stores(List<StoreBuilder> stores){
+    public static void print_sub_stores(List<Store> stores){
+        for(Store store : stores) {
+            if (store.getSub_stories() != null) {
+                System.out.println("Store \"" + store.getName() + "\" contains store(s): ");
+                for (Store sub_store : store.getSub_stories()) {
+                    System.out.print(sub_store.getName() + ", ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static void print_sub_stores_builder(List<StoreBuilder> stores){
         for(StoreBuilder store : stores) {
             if (store.getStore().getSub_stories() != null) {
                 System.out.println("Store \"" + store.getStore().getName() + "\" contains store(s): ");

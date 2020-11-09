@@ -23,54 +23,36 @@ public class MilkProducts implements NewProductDepartment {
         if (milkProducts == null && Store.isNew){
             synchronized (MilkProducts.class){
                 if(milkProducts == null && Store.isNew){
-                    int k = 0;
                     milkProducts = new MilkProducts();
                     System.out.println("department milk products is created");
-                    while (true){
-                        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-                        System.out.println("\nEnter the type of milk products (milk or cheese) you want to add or enter to exit: ");
-                        String type = br.readLine();
-                        if (type.length() == 0)
-                            break;
-                        else {
-                            productTypes[k] = milkProducts.addProducts(type);
-                            k++;
-                        }
-                    }
+                    add_product();
                 }
                 else{
                     System.out.println("department milk products already exists");
-                int k = 0;
-                while (true){
-                    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-                    System.out.println("\nEnter the type of milk products (milk or cheese) you want to add or enter to exit: ");
-                    String type = br.readLine();
-                    if (type.length() == 0)
-                        break;
-                    else {
-                        productTypes[k] = milkProducts.addProducts(type);
-                        k++;
-                    }
-                    }
+                add_product();
                 }
             }
         }
         else {
             System.out.println("department milk products already exists");
-            int k = 0;
-            while (true){
-                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-                System.out.println("\nEnter the type of milk products (milk or cheese) you want to add or enter to exit: ");
-                String type = br.readLine();
-                if (type.length() == 0)
-                    break;
-                else {
-                    productTypes[k] = milkProducts.addProducts(type);
-                    k++;
-                }
-            }
+            add_product();
         }
         return milkProducts;
+    }
+
+    public static void add_product() throws IOException {
+        int k = 0;
+        while (true){
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("\nEnter the type of milk products (milk or cheese) you want to add or enter to exit: ");
+            String type = br.readLine();
+            if (type.length() == 0)
+                break;
+            else {
+                productTypes[k] = milkProducts.addProducts(type);
+                k++;
+            }
+        }
     }
 
     @Override

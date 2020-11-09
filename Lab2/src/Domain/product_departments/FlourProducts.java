@@ -24,54 +24,36 @@ public class FlourProducts implements NewProductDepartment {
             synchronized (MilkProducts.class){
                 if(flourProducts == null  && Store.isNew){
                     Store.isNew = false;
-                    int k = 0;
                     flourProducts = new FlourProducts();
                     System.out.println("department flour products products is created");
-                    while (true){
-                        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-                        System.out.println("\nEnter the type of flour products (bread or bun) you want to add or enter to exit: ");
-                        String type = br.readLine();
-                        if (type.length() == 0)
-                            break;
-                        else {
-                            productTypes[k] = flourProducts.addProducts(type);
-                            k++;
-                        }
-                    }
+                    add_product();
                 }
                 else {
                     System.out.println("department flour products already exists");
-                    int k = 0;
-                    while (true){
-                        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-                        System.out.println("\nEnter the type of flour products (bread or bun) you want to add or enter to exit: ");
-                        String type = br.readLine();
-                        if (type.length() == 0)
-                            break;
-                        else {
-                            productTypes[k] = flourProducts.addProducts(type);
-                            k++;
-                        }
-                    }
+                    add_product();
                 }
             }
         }
         else {
             System.out.println("department flour products already exists");
-            int k = 0;
-            while (true){
-                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-                System.out.println("\nEnter the type of flour products (bread or bun) you want to add or enter to exit: ");
-                String type = br.readLine();
-                if (type.length() == 0)
-                    break;
-                else {
-                    productTypes[k] = flourProducts.addProducts(type);
-                    k++;
-                }
-            }
+            add_product();
         }
         return flourProducts;
+    }
+
+    public static void add_product() throws IOException {
+        int k = 0;
+        while (true){
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("\nEnter the type of flour products (bread or bun) you want to add or enter to exit: ");
+            String type = br.readLine();
+            if (type.length() == 0)
+                break;
+            else {
+                productTypes[k] = flourProducts.addProducts(type);
+                k++;
+            }
+        }
     }
 
     @Override
