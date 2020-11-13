@@ -196,6 +196,95 @@ The Facade pattern is used in Facade.StoreMaker, Creation.Company.
 
 input:
 
+    What tipe of store you want to create? (offline/online)
+    offline
+    Let's create a new offline store
     
-
-##Conclusions
+    Enter the name of the store: 
+    Kate's store
+    
+    Do you want to set a new owner? (y/n)
+    y
+    new owner
+    
+    Enter the name of the new owner of the store: 
+    Kate
+    
+    Enter the age of the new owner of the store: 
+    21
+    
+    Enter the department(milk department or bread department) in store you want to add(Or just Enter to exit): 
+    milk department
+    department milk products is created
+    
+    Enter the type of milk products (milk or cheese) you want to add or enter to exit: 
+    milk
+    
+    Enter the name of the product: 
+    m1
+    
+    Enter the price of the product: 
+    1
+    
+    Enter the production_date of the product: 
+    10.01
+    
+    Enter the expiration_date of the product: 
+    11.01
+    
+    Enter anything to add a new product or just enter to exit: 
+    
+    
+    Enter the type of milk products (milk or cheese) you want to add or enter to exit: 
+    
+    
+    Enter the department(milk department or bread department) in store you want to add(Or just Enter to exit): 
+    
+    
+    What tipe of store you want to create? (offline/online)
+    online
+    Let's create a new online store
+    
+    Enter the name of the store: 
+    online store
+    
+    Do you want to set a new owner? (y/n)
+    n
+    old owner
+    
+    Enter the department(milk department or bread department) in store you want to add(Or just Enter to exit): 
+    bread department
+    department flour products products is created
+    
+    Enter the type of flour products (bread or bun) you want to add or enter to exit: 
+    bun
+    
+    Enter the name of the product: 
+    b1
+    
+    Enter the price of the product: 
+    1
+    
+    Enter the production_date of the product: 
+    10.01
+    
+    Enter the expiration_date of the product: 
+    11.01
+    
+    Enter anything to add a new product or just enter to exit: 
+    
+    
+    Enter the type of flour products (bread or bun) you want to add or enter to exit: 
+    
+    
+    Enter the department(milk department or bread department) in store you want to add(Or just Enter to exit): 
+    
+output
+    
+    The store "Kate's store" by Kate(21 years)  is created
+    Store "Kate's store" contains store(s): 
+    The store "online store" by Tom(30 years)  is created
+    Domain.product_departments.FlourProducts:
+    Domain.productTypes.Bun:
+    n1, 
+    Store "online store" contains store(s): 
