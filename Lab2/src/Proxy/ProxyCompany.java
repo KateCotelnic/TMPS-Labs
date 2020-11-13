@@ -2,9 +2,11 @@
 package Proxy;
 
 import Abstraction.NewCompany;
+import Abstraction.StoreBuilder;
 import Creation.Company;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ProxyCompany implements NewCompany {
     private Company company;
@@ -12,6 +14,11 @@ public class ProxyCompany implements NewCompany {
 
     public Company getCompany() {
         return company;
+    }
+
+    @Override
+    public List<StoreBuilder> getStoreBuilders() {
+        return null;
     }
 
     public ProxyCompany(String name) {

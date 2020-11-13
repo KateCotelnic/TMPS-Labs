@@ -3,20 +3,20 @@ package Creation;
 
 import Abstraction.NewCompany;
 import Abstraction.StoreBuilder;
-import Builders.OnlineStoreBuilder;
 import Facade.StoreMaker;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Company implements NewCompany {
     private String name;
     private String type_store;
-    private List<Store> storeBuilders;
+    private List<StoreBuilder> storeBuilders = new ArrayList<>();
 
-    public List<Store> getStoreBuilders() {
+    public List<StoreBuilder> getStoreBuilders() {
         return storeBuilders;
     }
 
@@ -31,13 +31,12 @@ public class Company implements NewCompany {
         if(type_store.equals("offline")){
             StoreMaker storeMaker = new StoreMaker();
             storeMaker.createOfflineStore();
-//            System.out.println(storeMaker.getOfflineStoreBuilder().getStore().getOwner().getSetOwner().getName());
-        storeBuilders.add(storeMaker.getOfflineStoreBuilder().getStore());
+        storeBuilders.add(storeMaker.getOfflineStoreBuilder());
         }
         else if(type_store.equals("online")){
-            StoreBuilder newstore =  new OnlineStoreBuilder();
-            newstore.create();
-            storeBuilders.add(newstore.getStore());
+            StoreMaker storeMaker = new StoreMaker();
+            storeMaker.createOnlineStore();
+            storeBuilders.add(storeMaker.getOnlineStoreBuilder());
         }
     }
 
